@@ -12,6 +12,6 @@ Expects as argument a valid, binary, header-stripped .ply file and optionally, a
 This script should be attached to a unity empty object with a Mesh Renderer.  Use your exported to ASCII .ply file name in the field 'File_name'.
 <br/><br/>
 unity gizmo pointcloud<br/>
-   <img src="https://github.com/crisischris/intel_realsense_pointcloud_converter/blob/main/IMGs/lidar_chris_1.png" width="750"><br/>
+   <img src="https://github.com/crisischris/intel_realsense_pointcloud_converter/blob/main/IMGs/lidar_chris_1.png"><br/>
 depth-only pointcloud<br/>
-   <img src="https://github.com/crisischris/intel_realsense_pointcloud_converter/blob/main/IMGs/lidar_chris_2.png" width="750">
+   <img src="https://github.com/crisischris/intel_realsense_pointcloud_converter/blob/main/IMGs/lidar_chris_2.png">
