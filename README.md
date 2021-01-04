@@ -5,8 +5,13 @@ This repo contains a python binary .ply yo ASCII .ply converter script as well a
 
 # converter.py
 *NOTE: binary .ply file must be stripped of the .ply format header to be used by this script* 
-Expects as argument a valid, binary, header-stripped .ply file and optionally, a second argument as the output file name
-
+Expects as argument:<br/>
+*required* [valid, binary .ply file]
+<br/>
+*required* [valid, binary header-stripped .ply file]
+<br/>
+*optional* [the output file name]
+<br/>
 
 # ingest_ply_file.cs
 This script should be attached to a unity empty object with a Mesh Renderer.  Use your exported to ASCII .ply file name in the field 'File_name'.

@@ -2,13 +2,14 @@
 #date: 1/3/2021
 
 '''
+Using: python 3.8
 This script will ingest a binary, vertex, RGB  pointcloud .ply file from intel's d515
 (and likely other cameras) lidar scanner and convert the file to ASCII format
 
 note: this is taylor made for intel's realsense-ply export, and has not been tested on other software's
 export.
 
-PARAMETERS: [valid ply file in dire] optional:[name for exported file]
+PARAMETERS: required:[binary .ply file with header] required:[valid ply file with header stripped] optional:[name for exported file]
 *if no export name supplied default name will be given
 '''
 
@@ -21,13 +22,14 @@ def main(argv):
     outFile = "new.ply"
 
     #user supplied out file name
-    if len(argv) > 1:
-        outFile = argv[1]
+    if len(argv) > 2:
+        outFile = argv[2]
 
     #get the in file name and test for validity
     try:
-        inFile = argv[0]
-        if(not Path(inFile).is_file()):
+        inFileRef = argv[0]
+        inFile = argv[1]
+        if(not Path(inFileRef).is_file() or not Path(inFile).is_file()):
             print("USER ERROR: file does not exist")
             exit()
     except:
@@ -35,7 +37,7 @@ def main(argv):
         exit()
 
     #read in the header 
-    with open(inFile, 'rb') as f:
+    with open(inFileRef, 'rb') as f:
         buffer = f.read(350)
 
     #string manipulation to get amount vertices and amound faces
@@ -68,10 +70,10 @@ def main(argv):
 
     f.close()
 
-    with open('export_from_pointcloud_mod.ply', 'rb') as f:
+    with open(inFile, 'rb') as f:
         new_file = open(outFile,'w')
 
-        #loading barg
+        #loading bar
         const_mod = amount_verts / 40
         mod = const_mod
         print('converting from binary to ASCII')
