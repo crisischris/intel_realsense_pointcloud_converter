@@ -1,2 +1,15 @@
 # intel_realsense_pointcloud_converter
-Intel realsense pointcloud converter and ingestion files.  
+Intel realsense pointcloud converter and ingestion files. This script has been used and *only* tested with the intel l515 lidar camera however any pountcloud output by intel's realsense camera suite should work. 
+
+This repo contains a python binary .ply yo ASCII .ply converter script as well as a C# script for ingestion of the converted .ply file into Unity3D. This script remedies an issue I was having trying to programmatically export to an ASCII version .ply using intel's realsense API.  Currently, export options for the C++ implementation of the realsense API doesn't seem to allow for export to ASCII and instead defaults export to binary.  The convert.py file takes in a binary .ply file and converts to ASCII.    
+
+# converter.py
+*NOTE: binary .ply file must be stripped of the .ply format header to be used by this script* 
+Expects as argument a valid, binary, header-stripped .ply file and optionally, a second argument as the output file name
+
+
+# ingest_ply_file.cs
+This script should be attached to a unity empty object with a Mesh Renderer.  Use your exported to ASCII .ply file name in the field 'File_name'.
+results<br/>
+   ![desc](https://github.com/crisischris/IMGs/lidar_chris_1.png)<br/>
+   ![desc](https://github.com/crisischris/IMGs/lidar_chris_2.png)<br/>
